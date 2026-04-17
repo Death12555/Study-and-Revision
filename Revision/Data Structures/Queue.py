@@ -26,11 +26,13 @@ class Queue:
         if self.isEmpty():
             raise Exception("Queue is Empty")
 
-        data =self.front.data
+        removed_node = self.front # Capture the node object itself
         self.front = self.front.next
 
         if self.front is None:
             self.rear = None
+
+        return removed_node.data # Returns the stored Node object
 
     def print_queue(self):
         itr = self.front
